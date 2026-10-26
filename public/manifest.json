@@ -1,0 +1,26 @@
+{
+  "name": "Karen Community SDA Giving",
+  "short_name": "KCC Giving",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#800000",
+  "background_color": "#800000",
+  "description": "Secure online giving for Karen Community Seventh-day Adventist Church.",
+  "icons": [
+    { "src": "/icon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-256x256.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "/icon-384x384.png", "sizes": "384x384", "type": "image/png" },
+    { "src": "/icon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Give Now",
+      "description": "Give to Karen Community SDA with M-PESA.",
+      "url": "/",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

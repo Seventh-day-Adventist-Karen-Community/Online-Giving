@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "./payment-loader.css";
+
+/* Brand palette (was tailwind.config.js in the Tailwind v3 setup) */
+@theme {
+  --color-maroon-50: #ff949430;
+  --color-maroon-100: #ff9494;
+  --color-maroon-200: #ff6666;
+  --color-maroon-300: #ff3939;
+  --color-maroon-400: #ff0b0b;
+  --color-maroon-500: #dc0000;
+  --color-maroon-600: #ae0000;
+  --color-maroon-700: #ae3939;
+  --color-maroon-800: #ae0b0b;
+  --color-maroon-900: #800000;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -87,10 +87,10 @@ const GivingForm = () => {
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
       }
       setSuccess(true);
-      Messages.setSuccess(SUCCESS_MESSAGE, { position: "top-right" });
+      Messages.setSuccess(SUCCESS_MESSAGE, { position: "top-center" });
       router.push(`/give-now/confirm/${result.id}`);
     } else {
-      Messages.setErrors(error || "There was an error!", { position: "top-right" });
+      Messages.setErrors(error || "There was an error!", { position: "top-center" });
     }
     setLoading(false);
   };
@@ -150,7 +150,7 @@ const GivingForm = () => {
   useEffect(() => {
     Messages.setAlert(
       "Welcome to our enhanced giving experience! Enjoy a smoother, and more impactful way to support the work of God.",
-      { position: "top-right" },
+      { position: "top-center" },
     );
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
@@ -210,8 +210,9 @@ const GivingForm = () => {
         <div
           className="absolute inset-0 bg-cover bg-top bg-fixed"
           style={{ backgroundImage: `url(${Constants.IMAGE_BASE_URL}/kcc/Resources/giving-kcc-back.jpg)` }}
+          // style={{ backgroundImage: `./giving.jpg` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-rose-950/20 via-rose-900/40 to-rose-800/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-maroon-950/20 via-maroon-900/40 to-maroon-800/10" />
         <div className="relative z-10 max-w-lg mx-auto px-6 pt-14 pb-16 sm:pt-16 sm:pb-20 text-center">
           <div className="flex justify-center mb-6">
             <Image src="/logo-white.svg" width={160} height={80} alt="Karen Community SDA logo" className="h-12 w-auto" />
@@ -230,7 +231,7 @@ const GivingForm = () => {
             className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 relative"
             onSubmit={submitForm}
           >
-            <FormUtils loading={loading} success={success} successMessage={SUCCESS_MESSAGE} />
+            {/* <FormUtils loading={loading} success={success} successMessage={SUCCESS_MESSAGE} /> */}
 
             {page === 1 && (
               <div className="flex flex-col gap-y-3">
@@ -267,7 +268,7 @@ const GivingForm = () => {
                     id="church-unit"
                     value={state.unit}
                     onChange={(e) => dispatch({ type: MpesaActionEnum.CHANGE_UNIT, payload: e.target.value })}
-                    className="block px-3 py-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:border-transparent"
+                    className="block px-3 py-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-maroon-600 focus:border-transparent"
                   >
                     <option value="">Select Church Unit &hellip;</option>
                     {churchUnits?.map((unit) => (
@@ -284,7 +285,7 @@ const GivingForm = () => {
                     text="Next"
                     onClick={moveNext}
                     icon={<MdNavigateNext />}
-                    className="w-full md:w-auto bg-rose-900 hover:bg-rose-950"
+                    className="w-full md:w-auto bg-maroon-900 hover:bg-maroon-950"
                   />
                 </div>
               </div>
@@ -318,7 +319,7 @@ const GivingForm = () => {
                           type="button"
                           aria-label={`Remove ${payType.description}`}
                           onClick={() => removeGivingCategory(payType.index)}
-                          className="mb-4 text-gray-400 hover:text-rose-600 transition-colors shrink-0"
+                          className="mb-4 text-gray-400 hover:text-maroon-600 transition-colors shrink-0"
                         >
                           <IoClose size={20} />
                         </button>
@@ -336,7 +337,7 @@ const GivingForm = () => {
                       id="add-giving-category"
                       defaultValue=""
                       onChange={addGivingCategory}
-                      className="block px-2.5 py-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-rose-600"
+                      className="block px-2.5 py-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-maroon-600"
                     >
                       <option value="" disabled>
                         Choose a category &hellip;
@@ -356,7 +357,7 @@ const GivingForm = () => {
                     disabled={loading}
                     text={`Give KES ${total}`}
                     icon={loading && <Loader3 />}
-                    className="w-full bg-rose-900 hover:bg-rose-950"
+                    className="w-full bg-maroon-900 hover:bg-maroon-950"
                   />
                 </div>
               </div>
@@ -369,7 +370,7 @@ const GivingForm = () => {
         type="button"
         onClick={() => setShowInstructions(true)}
         aria-label="How giving with M-Pesa works"
-        className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-rose-900 text-white shadow-lg hover:bg-rose-950 transition-colors"
+        className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-maroon-900 text-white shadow-lg hover:bg-maroon-950 transition-colors"
       >
         <HiOutlineInformationCircle size={26} />
       </button>
@@ -377,9 +378,9 @@ const GivingForm = () => {
       {showInstructions && (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
           <div className="absolute inset-0 bg-black/50" onClick={() => setShowInstructions(false)} />
-          <div className="relative bg-white rounded-t-2xl sm:rounded-2xl shadow-xl w-full sm:max-w-md max-h-[85vh] overflow-y-auto p-6">
+          <div className="relative bg-white rounded-t-2xl sm:rounded-2xl shadow-xl w-full sm:max-w-xl max-h-[85vh] overflow-y-auto p-8">
             <div className="flex items-start justify-between gap-4 mb-4">
-              <div className="flex items-center gap-3 text-rose-700 font-bold">
+              <div className="flex items-center gap-3 text-maroon-700 font-bold">
                 <HiOutlineInformationCircle className="w-6 h-6 shrink-0" />
                 How giving with M-Pesa works
               </div>
@@ -387,12 +388,12 @@ const GivingForm = () => {
                 type="button"
                 onClick={() => setShowInstructions(false)}
                 aria-label="Close"
-                className="text-gray-400 hover:text-rose-900 transition-colors shrink-0"
+                className="text-gray-400 hover:text-maroon-900 transition-colors shrink-0"
               >
                 <IoClose size={22} />
               </button>
             </div>
-            <ol className="list-decimal list-inside text-sm sm:text-base leading-6 pl-5 space-y-1">
+            <ol className="list-decimal list-inside text-sm sm:text-base leading-6 pl-5 space-y-2">
               {GIVING_STEPS.map((step) => (
                 <li key={step}>{step}</li>
               ))}
